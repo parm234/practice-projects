@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Die from "./Components/Die";
 import { nanoid } from 'nanoid'
 
 function App() {
   const [dice,setDice] = useState(allNewDice())
-  
+  const [tenzies, setTenzies] = useState(false)
+
  
   // roll button re-generating random numbers
   function rollDice(){
@@ -37,7 +38,16 @@ function App() {
     }))
   }
 
-  
+  useEffect(() => {
+    const allHeld = dice.every(die => die.isHeld)
+    const firstValue = dice[0].value
+    const allSameValue = dice.every(die => die.value===firstValue)
+    if(allHeld && allSameValue)
+    {
+      setTenzies(true)
+      console.log("you won")
+    }
+  },[dice])
 
   const diceElements = dice.map(die => <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />)
 
