@@ -16,7 +16,7 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
 }
@@ -29,7 +29,7 @@ body {
 
 .die--face{
   font-weight: 700;
-  font-size: 20px;
+  font-size: 2rem;
   width: 50px;
   height: 50px;
   background-color: #FFFFFF;
@@ -38,4 +38,27 @@ body {
   justify-content: center;
   align-items: center;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+
+.roll-dice{
+  background-color: #5035FF;
+  font-family: 'Karla';
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 1.2rem;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 6px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+
+.roll-dice:focus{
+  outline: none;
+}
+
+.roll-dice:active{
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
